@@ -1,0 +1,20 @@
+@use '../../../styles/variables';
+
+@use "sass:map";
+
+.datePicker {
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
+  padding: 8px;
+  border-radius: 8px;
+  width: 320px;
+  background: map.get(variables.$white, 'pure');
+  transform-origin: top;
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  transition-duration: 300ms;
+  transition-delay: 300ms;
+  opacity: 0;
+  &.active {
+    opacity: 1;
+  }
+}

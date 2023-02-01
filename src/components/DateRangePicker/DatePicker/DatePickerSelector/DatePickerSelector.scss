@@ -1,0 +1,51 @@
+@use '../../../../styles/variables';
+
+@use "sass:map";
+
+.datePickerSelector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 42px;
+  border-bottom: 1px solid map.get(variables.$white, 'off');
+  margin-bottom: 8px;
+
+  .datePickerSelector__text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-top: -10px;
+    &__title {
+      user-select: none;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: map.get(variables.$blue, 'dark');
+    }
+    &__date {
+      user-select: none;
+    }
+  }
+  .datePickerSelector__icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .datePickerSelector__icon:hover {
+    background-color: map.get(variables.$blue, 'light');
+  }
+
+  .datePickerSelector__iconLeft {
+    transform: rotate(90deg);
+  }
+
+  .datePickerSelector__iconRight {
+    transform: rotate(-90deg);
+  }
+}

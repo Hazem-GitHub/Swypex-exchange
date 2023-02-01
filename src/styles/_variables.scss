@@ -1,0 +1,37 @@
+// Colors
+$green: (
+  'opacity': rgba(#acfff2, 0.85),
+  'filled': #acfff2,
+);
+$blue: (
+  'dark': #0012cc,
+  'medium': #3a71ff,
+  'light': #ecedf7,
+);
+$white: (
+  'pure': #ffffff,
+  'off': #fdfdff,
+);
+$black: (
+  'pure': #0d0d0d,
+  'medium': #1d1d1d,
+  'light': #adadad,
+);
+
+// Font Weights
+$weight: (
+  'regular': 400,
+  'light': 300,
+  'thin': 200,
+  'medium': 500,
+  'bold': 600,
+  'black': 900,
+);
+
+// Border radius
+$rounded: (
+  'sm': 5px,
+  'md': 10px,
+  'lg': 15px,
+  'full': 50%,
+);

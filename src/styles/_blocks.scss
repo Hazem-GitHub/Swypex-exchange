@@ -1,0 +1,6 @@
+@use './variables';
+@use 'sass:map';
+
+.shadow {
+  box-shadow: 0 1px 5px -1px map.get(variables.$black, 'medium');
+}

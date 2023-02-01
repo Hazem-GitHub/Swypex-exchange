@@ -1,0 +1,102 @@
+@use '../../styles/variables';
+@use '../../styles/blocks';
+
+@use "sass:map";
+
+.outputCurrencies {
+  position: relative;
+  width: max-content;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  color: map.get(variables.$white, 'pure');
+  padding: 0.5rem 0.5rem;
+  margin: 10px;
+  @media screen and (max-width: 768px) {
+    width: calc(100% - 20px);
+  }
+  .dropdown-toggler {
+    width: max-content;
+    max-width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    label {
+      font-weight: map.get(variables.$weight, 'black');
+      color: map.get(variables.$white, 'pure');
+      display: block;
+    }
+    svg {
+      transform: rotate(0deg);
+      transition: all ease-in 300ms;
+      margin-bottom: -6px;
+    }
+    &.active {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .dropdown-menu {
+    background: map.get(variables.$white, 'pure');
+    @extend .shadow;
+    border-radius: map.get(variables.$rounded, 'sm');
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    min-width: 300px;
+    height: 380px;
+    max-height: 100vh;
+    display: none;
+    overflow-y: auto;
+    transform: translateY(10px);
+    z-index: -1;
+    transition: all ease-out 300ms;
+    &.active {
+      display: block;
+      transform: translateY(0);
+      z-index: 999;
+    }
+    ul {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 10px 0px;
+      li {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 5px;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        // &:not(:last-child) {
+        //   border-bottom: 1px solid map.get(variables.$black, 'light');
+        // }
+        input[type='checkbox'] {
+          font-size: 1rem;
+          border-radius: 0;
+          width: 20px;
+          margin-top: 5px;
+        }
+        label {
+          font-size: 1rem;
+          font-weight: 400;
+          color: map.get(variables.$black, 'pure');
+          margin-bottom: 0;
+          text-align: start;
+          width: 100%;
+          user-select: none;
+        }
+      }
+    }
+  }
+}

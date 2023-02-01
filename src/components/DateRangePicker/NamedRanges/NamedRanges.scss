@@ -1,0 +1,65 @@
+@use '../../../styles/variables';
+
+@use "sass:map";
+
+.dateRangePicker-namedRanges {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 100%;
+  gap: 2px;
+  transform-origin: top;
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  transition-duration: 300ms;
+  transition-delay: 300ms;
+  opacity: 0;
+  &.active {
+    opacity: 1;
+  }
+  .dateRangePicker-namedRanges__container {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: 10px;
+    @media screen and (max-width: 768px) {
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      overflow-x: auto;
+      padding: 0 20px;
+    }
+    .dateRangePicker-namedRanges__button {
+      background: transparent;
+      color: #000;
+      border: 0px solid map.get(variables.$white, 'off');
+      padding: 0.5rem 0.5rem;
+      border-radius: 5px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      white-space: nowrap;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all ease-in-out 300ms;
+      @media screen and (max-width: 768px) {
+        width: auto;
+        padding: 1rem;
+      }
+      &:hover {
+        transform: translateX(4px);
+        @media screen and (max-width: 768px) {
+          transform: translateX(0px);
+          transform: translateY(-4px);
+        }
+      }
+    }
+  }
+}

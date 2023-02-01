@@ -1,0 +1,38 @@
+@use '../../styles/variables';
+@use '../../styles/blocks';
+
+@use "sass:map";
+
+.baseCurrency {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+  label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  select {
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: map.get(variables.$black, 'pure');
+    background: map.get(variables.$white, 'off');
+    @extend .shadow;
+    border: 2px solid transparent;
+    transition: all ease-out 300ms;
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 0px;
+    }
+    &:focus {
+      border-color: map.get(variables.$blue, 'light');
+      outline: none;
+    }
+    option {
+    }
+  }
+}

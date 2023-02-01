@@ -1,0 +1,80 @@
+@use '../../../../styles/variables';
+
+@use "sass:map";
+
+.datePickerCalendar__row {
+  display: flex;
+}
+
+.datePickerCalendar__header {
+  margin-bottom: 8px;
+  display: flex;
+}
+
+.datePickerCalendar__cell {
+  padding: 4px;
+  width: 38px;
+  height: 38px;
+  margin: 1px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: map.get(variables.$blue, 'dark');
+  user-select: none;
+}
+
+.datePickerCalendar__dayCell {
+  position: relative;
+  cursor: pointer;
+  color: map.get(variables.$black, 'pure');
+  font-size: 0.9rem;
+  font-weight: 300;
+  transition: all ease-in-out 300ms;
+  &:not(.datePickerCalendar__dayCell_selected):hover {
+    background-color: map.get(variables.$blue, 'light');
+  }
+  &:active {
+    background-color: map.get(variables.$white, 'off');
+  }
+  &_selected {
+    background-color: map.get(variables.$blue, 'dark');
+    color: map.get(variables.$white, 'pure');
+    &.datePickerCalendar__dayCell_today {
+      &::after {
+        border-color: map.get(variables.$white, 'pure');
+      }
+    }
+  }
+  &_disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    user-select: none;
+  }
+  &_inRange {
+    background-color: map.get(variables.$blue, 'light');
+    color: map.get(variables.$black, 'pure');
+    &.datePickerCalendar__dayCell_today {
+      &::after {
+        border-color: map.get(variables.$black, 'pure');
+      }
+    }
+  }
+  &_today {
+    &::after {
+      content: '';
+      position: absolute;
+      width: 70%;
+      height: 70%;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 2px dotted map.get(variables.$blue, 'medium');
+      background: transparent;
+      z-index: 1;
+    }
+  }
+}
