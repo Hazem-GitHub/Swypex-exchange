@@ -35,9 +35,9 @@ const OutputCurrencies: React.FC<IOutputCurrenciesProps> = ({
         // Finding out if code is already exists or we should push it in
         const find = sel.indexOf(code);
         if (find > -1) {
-        sel.splice(find, 1);
+            sel.splice(find, 1);
         } else {
-        sel.push(code);
+            sel.push(code);
         }
         // Setting the new selections
         setOutputCurrencies(sel);
